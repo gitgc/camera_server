@@ -1,7 +1,19 @@
 doctype html
-html
+html(ng-app='cameraServer' lang='en')
   head
-    title= title
+    title #{title}
+    
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+    script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js')
+    script(src='/javascripts/controllers/eventsController.js')
+    script(src='/javascripts/services/events.js')
+    script(src='/javascripts/core.js')
+  
   body
     block content

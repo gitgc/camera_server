@@ -1,33 +1,17 @@
-doctype html
-// ASSIGN OUR ANGULAR MODULE
-html(ng-app='cameraServer' lang='en')
-  head
-    // META
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    // Optimize mobile viewport
-    title #{title}
-    // SCROLLS
-    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css')
-    script(src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
-    script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js')
-    // load angular
-    script(src='/javascripts/controllers/eventsController.js')
-    script(src='/javascripts/services/events.js')
-    script(src='/javascripts/core.js')
-  // SET THE CONTROLLER AND GET ALL EVENTS
-  body(ng-controller='mainController')
-    .container
-      // HEADER AND EVENT COUNT
-      .jumbotron.text-center
-        h1
-          | Number of detected events
-          span.label.label-info {{ events.length }}
-      // EVENT LIST
-      #event-list.row
-        .col-sm-4.col-sm-offset-4
-          // LOOP OVER THE events IN $scope.events
-          .checkbox(ng-repeat='event in events')
-            label
-              input(type='checkbox', ng-click='deleteEvent(event._id)')
-              |  {{ event.date }}
+extends layout
+
+block content
+  .container(ng-controller='mainController')
+    // HEADER AND EVENT COUNT
+    .jumbotron.text-center
+      h1
+        | Number of detected events
+        span.label.label-info {{ events.length }}
+    // EVENT LIST
+    #event-list.row
+      .col-sm-4.col-sm-offset-4
+        // LOOP OVER THE events IN $scope.events
+        .checkbox(ng-repeat='event in events')
+          label
+            input(type='checkbox', ng-click='deleteEvent(event._id)')
+            |  {{ event.date }}

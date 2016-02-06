@@ -14,6 +14,8 @@ router.get('/events', function(req, res) {
 
 router.post('/events', function(req, res) {
   Event.create({
+      cameraName: req.body.cameraName,
+      cameraLocation: req.body.cameraLocation,
       date: req.body.date,
       images: req.body.images
     },

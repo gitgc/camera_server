@@ -5,13 +5,24 @@ block content
     // HEADER AND EVENT COUNT
     .jumbotron.text-center
       h1
-        | Number of detected events
+        | Number of detected events 
         span.label.label-info {{ events.length }}
-    // EVENT LIST
-    #event-list.row
-      .col-sm-4.col-sm-offset-4
-        // LOOP OVER THE events IN $scope.events
-        .checkbox(ng-repeat='event in events')
-          label
-            input(type='checkbox', ng-click='deleteEvent(event._id)')
-            |  {{ event.date }}
+
+    .message-item(ng-repeat='event in events')
+      .message-inner
+        .message-head.clearfix
+          .message-icon.pull-left
+            a(href='#')
+              i.glyphicon.glyphicon-check
+          button.btn.btn-danger.pull-right(type='button' ng-click='deleteEvent(event._id)') Delete
+          .user-detail
+            h5.handle Motion detected at {{ event.date }}
+            .post-type
+              p {{ event.cameraName }} - {{ event.cameraLocation }}
+            .post-time
+              p
+                i.glyphicon.glyphicon-time
+                |  2 Min Ago
+            
+        .qa-message-content
+          p Image preview will go here

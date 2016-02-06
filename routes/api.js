@@ -3,7 +3,6 @@ var mongoose = require('mongoose');
 var Event = require('../models/Event');
 var router = express.Router();
 
-//Get events
 router.get('/events', function(req, res) {
   Event.find(function(err, events) {
     if (err) {
@@ -13,7 +12,6 @@ router.get('/events', function(req, res) {
   });
 });
 
-//create events
 router.post('/events', function(req, res) {
   Event.create({
       date: req.body.date,
@@ -33,7 +31,6 @@ router.post('/events', function(req, res) {
     });
 });
 
-//delete event
 router.delete('/events/:event_id', function(req, res) {
   Event.remove({
     _id: req.params.event_id

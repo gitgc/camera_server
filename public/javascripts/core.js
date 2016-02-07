@@ -1,1 +1,1 @@
-angular.module('cameraServer', ['eventsController', 'eventsService']);
+angular.module('cameraServer', ['eventsController', 'eventsService', 'angularMoment']);

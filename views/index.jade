@@ -2,7 +2,6 @@ extends layout
 
 block content
   .container(ng-controller='mainController')
-    // HEADER AND EVENT COUNT
     .jumbotron.text-center
       h1
         | Number of detected events 
@@ -16,13 +15,14 @@ block content
               i.glyphicon.glyphicon-check
           button.btn.btn-danger.pull-right(type='button' ng-click='deleteEvent(event._id)') Delete
           .user-detail
-            h5.handle Motion detected at {{ event.date }}
+            h5.handle  
+              span {{event.date | amUtc | amLocal | amDateFormat:'dddd, MMMM Do YYYY, h:mm:ss A'}}
             .post-type
               p {{ event.cameraName }} - {{ event.cameraLocation }}
             .post-time
               p
                 i.glyphicon.glyphicon-time
-                |  2 Min Ago
-            
+                | 
+                span(am-time-ago="event.date")
         .qa-message-content
           p Image preview will go here

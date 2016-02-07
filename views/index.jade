@@ -5,8 +5,9 @@ block content
     .row
     .jumbotron.text-center
       h1
-        | Number of detected events 
+        | PiCamera 
         span.label.label-info {{ events.length }}
+    
     
     .row
       .col-md-2
@@ -54,3 +55,4 @@ block content
                     span(am-time-ago="event.date")
             .qa-message-content
               p Image preview will go here
+        .no-events.text-center(ng-hide="events.length") No Events

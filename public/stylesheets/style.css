@@ -7,6 +7,23 @@ a {
   color: #00B7FF;
 }
 
+ul {
+    list-style-type: none;
+}
+
 html {
   overflow-y:scroll;
+}
+
+.no-events {
+margin-top: 25px;
+margin-bottom: 25px;
+margin-left: 25px;
+position: relative;
+background: #f7f9fa;
+border: 1px solid #eff2f3;
+border-radius: 3px;
+padding: 10px;
+padding-top: 20px;
+padding-bottom: 20px;
 }

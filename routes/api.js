@@ -4,7 +4,7 @@ var Event = require('../models/Event');
 var router = express.Router();
 
 router.get('/events', function(req, res) {
-  Event.find(function(err, events) {
+  Event.find({}, null, {sort: {date: -1}}, function(err, events) {
     if (err) {
       res.send(err);
     }
@@ -24,7 +24,7 @@ router.post('/events', function(req, res) {
         res.send(err);
       }
       // get and return all the events after you create another
-      Event.find(function(err, events) {
+      Event.find({}, null, {sort: {date: -1}}, function(err, events) {
         if (err) {
           res.send(err);
         }
@@ -41,7 +41,7 @@ router.delete('/events/:event_id', function(req, res) {
       res.send(err);
     }
     // get and return all the events after you delete one
-    Event.find(function(err, events) {
+    Event.find({}, null, {sort: {date: -1}}, function(err, events) {
       if (err) {
         res.send(err);
       }

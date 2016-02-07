@@ -23,7 +23,7 @@ router.post('/events', function(req, res) {
       if (err) {
         res.send(err);
       }
-      // get and return all the events after you create another
+      
       Event.find({}, null, {sort: {date: -1}}, function(err, events) {
         if (err) {
           res.send(err);
@@ -40,7 +40,7 @@ router.delete('/events/:event_id', function(req, res) {
     if (err) {
       res.send(err);
     }
-    // get and return all the events after you delete one
+
     Event.find({}, null, {sort: {date: -1}}, function(err, events) {
       if (err) {
         res.send(err);

@@ -115,8 +115,9 @@ color: #585b5e;
 font-size: .9em;
 margin: 0;
 }
-img {
- min-height: 40px;
- max-height: 40px;
- border-radius: 50%;
+
+.preview-image {
+    float: left;
+    margin-right: 25px;
+    margin-bottom: 25px;
 }

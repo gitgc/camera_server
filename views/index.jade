@@ -13,48 +13,9 @@ block content
     .row
       //Menu Column
       .col-md-2
-        .row
-          h3 Cameras
-          ul
-            li
-              a(href='#')
-                i.glyphicon.glyphicon-camera
-                | All
-            li
-              a(href='#')
-                i.glyphicon.glyphicon-camera
-                | PiCamera 1
-        .row
-          h3 Locations
-          ul
-            li
-              a(href='#')
-                i.glyphicon.glyphicon-map-marker
-                | All
-            li
-              a(href='#')
-                i.glyphicon.glyphicon-map-marker
-                | Front Door
+        include ./index/_menu.jade
       
       //Content Column
       .col-md-10  
-        .message-item(ng-repeat='event in events')
-          .message-inner
-            .message-head.clearfix
-              .message-icon.pull-left
-                a(href='#')
-                  i.glyphicon.glyphicon-check
-              button.btn.btn-danger.pull-right(type='button' ng-click='deleteEvent(event._id)') Delete
-              .user-detail
-                h5.handle  
-                  span {{event.date | amUtc | amLocal | amDateFormat:'dddd, MMMM Do YYYY, h:mm:ss A'}}
-                .post-type
-                  p {{ event.cameraName }} - {{ event.cameraLocation }}
-                .post-time
-                  p
-                    i.glyphicon.glyphicon-time
-                    | 
-                    span(am-time-ago="event.date")
-            .qa-message-content
-              p Image preview will go here
+        include ./index/_event_row.jade
         .no-events.text-center(ng-hide="events.length") No Events

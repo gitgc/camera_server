@@ -1,11 +1,14 @@
 angular.module('eventsService', [])
     .factory('Events', function($http) {
         return {
-            get : function() {
-                return $http.get('api/events');
+            listAll : function() {
+                return $http.get('/api/events');
+            },
+            get : function(eventId) {
+                return $http.get('/api/events/' + eventId);
             },
             delete : function(eventId) {
-                return $http.delete('api/events/' + eventId);
+                return $http.delete('/api/events/' + eventId);
             }
         };
     });

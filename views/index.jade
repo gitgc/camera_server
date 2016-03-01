@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  .container(ng-controller='mainController')
+  .container(ng-controller='EventListController')
     .row
     //Banner
     .jumbotron.text-center
@@ -17,5 +17,6 @@ block content
       
       //Content Column
       .col-md-10  
-        include ./index/_event_row.jade
-        .no-events.text-center(ng-hide="events.length") No Events
+        //angular templating
+        //this is where content will be injected
+        .ng-view

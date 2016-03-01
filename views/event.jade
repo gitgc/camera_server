@@ -1,0 +1,23 @@
+.row
+  .message-item
+    .message-inner
+      .message-head.clearfix
+        .message-icon.pull-left
+          a(href='#')
+            i.glyphicon.glyphicon-check
+        button.btn.btn-danger.pull-right(type='button' ng-click='deleteEvent(selectedEvent._id)') Delete
+        .user-detail
+          h5.handle  
+            span {{selectedEvent.date | amUtc | amLocal | amDateFormat:'dddd, MMMM Do YYYY, h:mm:ss A'}}
+          .post-type
+            p {{ selectedEvent.cameraName }} - {{ selectedEvent.cameraLocation }}
+          .post-time
+            p
+              i.glyphicon.glyphicon-time
+              | 
+              span(am-time-ago='selectedEvent.date')
+      .qa-message-content
+        .row
+          .col-sm-4(ng-repeat='image in selectedEvent.images')
+            img.img-responsive.preview-image(src='{{ image.path }}', alt='')
+        .row.text-center

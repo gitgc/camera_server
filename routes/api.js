@@ -23,7 +23,7 @@ router.post('/events', function(req, res) {
       if (err) {
         res.send(err);
       }
-      
+
       Event.find({}, null, {sort: {date: -1}}, function(err, events) {
         if (err) {
           res.send(err);
@@ -31,6 +31,15 @@ router.post('/events', function(req, res) {
         res.json(events);
       });
     });
+});
+
+router.get('/events/:event_id', function(req, res, next) {
+  Event.findOne( {'_id' : req.params.event_id }, function(err, event) {
+    if (err) {
+      res.send(err);
+    }
+    res.json(event);
+  });
 });
 
 router.delete('/events/:event_id', function(req, res) {

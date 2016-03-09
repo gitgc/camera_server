@@ -17,7 +17,6 @@
               | 
               span(am-time-ago='selectedEvent.date')
       .qa-message-content
-        .row
-          .col-sm-4(ng-repeat='image in selectedEvent.images')
-            img.img-responsive.preview-image(src='{{ image.path }}', alt='')
-        .row.text-center
+        .row(ng-repeat='image in selectedEvent.images')
+          .col-lg-12.col-centered
+            img.img-responsive.preview-image(ng-src='{{ image.path }}', alt='')

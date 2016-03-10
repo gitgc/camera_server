@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var mongoose = require('mongoose');
+var qt = require('quickthumb')
 
 var db = require('./config/db');
 
@@ -27,7 +28,9 @@ app.use(bodyParser.urlencoded({'extended':'true'}));            // parse applica
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 app.use(methodOverride());
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
+// Quickthumb for image resizing
+app.use(qt.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/api', api);

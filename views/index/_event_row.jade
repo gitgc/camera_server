@@ -19,6 +19,6 @@
       .qa-message-content
         .row
           .col-sm-4(ng-repeat='image in event.images | limitTo: 3')
-            img.img-responsive.preview-image(ng-src='{{ image.path }}', alt='')
+            img.img-responsive.preview-image(ng-src='{{ image.path }}?dim=200', alt='')
         .row.text-center
           a(href='#/event/{{ event._id }}') View ({{ event.images.length }})...

@@ -19,4 +19,4 @@
       .qa-message-content
         .row(ng-repeat='image in selectedEvent.images')
           .col-lg-12.col-centered
-            img.img-responsive.preview-image(ng-src='{{ image.path }}', alt='')
+            img.img-responsive.preview-image(ng-src='{{ image.path }}?dim=1000', alt='')

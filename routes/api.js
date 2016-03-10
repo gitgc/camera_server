@@ -1,6 +1,6 @@
 var express = require('express');
 var mongoose = require('mongoose');
-var Event = require('../models/Event');
+var Event = require('../models/event');
 var router = express.Router();
 
 router.get('/events', function(req, res) {
